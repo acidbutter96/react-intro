@@ -68,3 +68,208 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## Projeto
+
+### Alterar a porta
+
+Caso a porta 3000 esteja ocupada, devemos alterar a porta para poder executar o projet, poderemos verificar diretamente no arquivo **package.json** e encontrar o registro
+```json
+    {
+        "scripts": {
+            "start": "react-scripts start",
+            "build": "react-scripts build",
+            "test": "react-scripts test",
+            "eject": "react-scripts eject"
+        }
+    }
+```
+no windows, devemos alterar o valor de **start** para
+```json
+    {
+        "scripts": {
+            "start": "set PORT=5000 && react-scripts start",
+            "build": "react-scripts build",
+            "test": "react-scripts test",
+            "eject": "react-scripts eject"
+        }
+    }
+```
+já no Ubuntu ou Mac
+```json
+    {
+        "scripts": {
+            "start": "PORT=5000 react-scripts start",
+            "build": "react-scripts build",
+            "test": "react-scripts test",
+            "eject": "react-scripts eject"
+        }
+    }
+```
+
+### Síntaxe JSX
+
+É uma sintaxe de HTML + JS, podemos até mesmo atribuí-las em variáveis
+```javascript
+    const element = <h1>Hello World!!</h1>;
+    ReactDOM.render(element,document.getElementById("root"));
+```
+isso imprimirá todo conteúdo no elemento com id root.
+
+Podemos usar o JSX da seguinte maneira também
+```javascript
+    const name = "Marcos"
+    const element = <h1>Meu nome é {name}!</h1>;
+```
+assim como qualquer expressão válida em JS.
+
+### Funções em ReactJS
+
+De forma sucinta podemos também usar funções dentro do JSX:
+```javascript
+    const user = {
+        firstName: "Marcos",
+        lastName: "Pereira"
+    };
+
+    function formatarNome(user) {
+        return user.firstName +" "+ user.lastName;
+    }
+
+    const element = (<h1>hello, {formatarNome(user)}!</h1>);
+
+    ReactDOM.render(
+    element
+    , document.getElementById('root'));
+```
+
+### Componente de função ou classe em React
+
+ao definirmos uma função com a primeira letra maíscula, podemos printá-la na tela usando:
+```javascript
+    function Welcome(){
+        return <h1>Hello John  Wayne</h1>
+    }
+
+    const element = <Welcome/>;
+```
+caso esse meu elemento receba uma propriedade, usamos a variável props
+```javascript
+    function Welcome(props){
+        return <h1>Welcome {props.name}</h1>
+    }
+
+    const element = <Welcome/>
+```
+mas também podemos utilizar classe ES6 para definir um componente:
+```javascript
+    class Welcome extends React.component {
+        render(){
+            return <h1>Hello, {this.props.name}</h1>
+        }
+    }
+```
+
+### Componentes Compostos
+
+Podemos definir componentes compostos, ou seja, componentes compostos por outros componentes
+```javascript
+    class Welcome extends React.Component {
+    render() {
+        return <h1>Hello, {this.props.name}</h1>
+    }
+    }
+
+    const element1 = <Welcome name="Pereirão" />
+
+    function App() {
+    return (
+        <div>
+            <Welcome name="Marvin"/>
+            <Welcome name="Lady"/>
+            <Welcome name="Pepita"/>
+            <Welcome name="Luci"/>
+        </div>
+    );
+    }
+
+    ReactDOM.render(
+    <App />
+    , document.getElementById('root'));
+```
+uma dica preciosa é deixar os componentes em arquivos separados e utilizá-los usando a tag em caixa alta.
+
+### Estado e ciclo de vida do React
+
+Ao declararmos a classe 
+```javascript
+    class Clock extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = { date: new Date() }
+        }
+
+        render() {
+            return (
+                <>
+                    <h1>Hora atual</h1>
+                    <h2>{this.state.date.toLocaleTimeString()}</h2>
+                </>);
+        }
+    }
+```
+o super(props) é utilizado para que possamos trabalhar com states.
+
+Verificamos que os segundos ficam estáticos, nesse caso deveremos adicionar **Métodos de Ciclo de vida** ao projeto que são os
+```javascript
+    componentDidMount(){
+
+    }
+    componentWillUnmount(){
+
+    }
+```
+o DidMount é executado toda vez que a saída do componente é renderizado no DOM
+```javascript
+    componentDidMount(){
+        this.timerID = setInterval(
+            ()=>this.tick(),
+            1000
+        );
+    }
+```
+a função tick() pode ser criada a partir da função setState() que altera o estado armazenado:
+```javascript
+    tick(){
+        this.setState({
+            date: new Date()
+        });
+    }
+```
+Em aplicações com muitos componentes, é muito importante limpar os recursos utilizados pelos componentes quando eles são destruídos, para isso usamos o componentWillUnmount() que destrói o componente que ocupa recurso após este deixar de ser visualizado pelo navegador, chamamos isso de unmounting
+
+### Manipulando Eventos
+
+Manipular eventos no React se assemelha muito com manipular eventos em elementos do DOM.
+
+Importante lembrar que eventos em react são nomeados em **camelCase**. Um evento em ReactJS pode ser escrito como no DOM
+```javascript
+    function Event(){
+        function handleClick(e){
+            alert("Link clicado");
+            e.preventDefault();
+        }
+        return (
+            <>
+                <a href="#" onClick={handleClick}>
+                    Clique Aqui
+                </a>
+            </>
+        )
+    }
+```
+ou usando o padrão ES6 de classes, vamos fazer um botão ligar e desligado, para isso podemos utilizar os states.
+```javascript
+
+```
