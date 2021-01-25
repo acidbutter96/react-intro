@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 //variables are the same of the index.js file
 
 const name = "Marquin";

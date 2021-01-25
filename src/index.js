@@ -18,6 +18,8 @@ import Hooks from "./Hooks";
 import Css from "./Css";
 import Reactstrap from "./Reactstrap";
 
+import Routes from "./routes";
+
 const name = "Marquin";
 
 const element = <h1>oie, {name}</h1>;
@@ -99,7 +101,7 @@ ReactDOM.render(
     <br/>
     <br/>
     <Reactstrap/>
-
+    {/* <Routes/> */}
   </>
   ,
   document.getElementById('root')
