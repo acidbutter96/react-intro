@@ -9,6 +9,12 @@ import App from "./App";
 
 import Header from "./Header";
 import Footer from "./Footer";
+import States from "./States";
+import Events from "./Events";
+import Keys from "./Keys";
+import Form from "./Form";
+import Hooks from "./Hooks";
+import Css from "./Css";
 
 const name = "Marquin";
 
@@ -75,7 +81,20 @@ ReactDOM.render(
     <TestFunction bool="true"/>
     <App bool="true"/>
     <hr/>
+    <States/>
     <Footer/>
+    <Events/>
+    <Keys />
+    <Form/>
+    <hr/>
+    <h1>Hooks</h1>
+    <p>
+      Now we gonna study a new funcionality of react (16.8+), it allow us to use states and another properties of react without classes.
+      The useState is the first Hook we gonna see
+    </p>
+    <Hooks/>
+    <Css/>
+
   </>
   ,
   document.getElementById('root')
