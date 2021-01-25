@@ -1,10 +1,13 @@
-import React from "react";
+import React from 'react';
 
 function Header(){
     return (
-        <header>
-            <div>Cabeçalho</div>
-        </header>
+            <div>
+                <div>
+                    Header
+                Header
+                </div>
+            </div>
     );
 }
 

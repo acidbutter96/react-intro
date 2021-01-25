@@ -4,6 +4,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+# Bug
+I have one weirdo problem about something in my localhost on my current Ubuntu distribution, it happens every time we shut down the PC and try to run the npm start again.
+I solved this by typing on the terminal:
+```console
+    unset HOST
+```
+powww, the problem is solved. But actually I have no idea about what really happens, lol. Btw I will left the log file that was generated every time the error happened.
+
+So let's continue...
+
 In the project directory, you can run:
 
 ### `npm start`
