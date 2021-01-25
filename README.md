@@ -283,3 +283,17 @@ ou usando o padrão ES6 de classes, vamos fazer um botão ligar e desligado, par
 ```javascript
 
 ```
+
+## Bootstrap & Reactstrap
+
+First we need to install the bootstrap after that the reactstrap
+```console
+    npm i -S bootstrap
+    npm i -S reactstrap reactstrap react react-dom
+```
+
+## Routes
+Need to install the module react-router-dom
+```console
+    npm i -S react-router-dom
+```

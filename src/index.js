@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 //exporting external files is suppa dubba easy
 
@@ -15,6 +16,7 @@ import Keys from "./Keys";
 import Form from "./Form";
 import Hooks from "./Hooks";
 import Css from "./Css";
+import Reactstrap from "./Reactstrap";
 
 const name = "Marquin";
 
@@ -94,6 +96,9 @@ ReactDOM.render(
     </p>
     <Hooks/>
     <Css/>
+    <br/>
+    <br/>
+    <Reactstrap/>
 
   </>
   ,
