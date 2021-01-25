@@ -8,7 +8,7 @@ import App from "./App";
 //the key is: create every compoenent in a single external file, as Header, for exemple:
 
 import Header from "./Header";
-
+import Footer from "./Footer";
 
 const name = "Marquin";
 
@@ -74,6 +74,8 @@ ReactDOM.render(
     </div>
     <TestFunction bool="true"/>
     <App bool="true"/>
+    <hr/>
+    <Footer/>
   </>
   ,
   document.getElementById('root')
